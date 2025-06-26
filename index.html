@@ -8,12 +8,12 @@
   <style>
     :root {
       --light: #f1f2f2;
-      --pale-blue: #c8d8e1;
+      --dark-bg: #1e1e1e;
+      --light-text: #2d7282;
+      --dark-text: #f1f2f2;
       --blue: #00adc1;
-      --deep-blue: #2d7282;
       --radius: 16px;
-      --shadow-raised: 8px 8px 16px #c3cbd1, -8px -8px 16px #ffffff;
-      --shadow-inset: inset 6px 6px 12px #c3cbd1, inset -6px -6px 12px #ffffff;
+      --shadow-raised: 8px 8px 16px rgba(0,0,0,0.1), -8px -8px 16px rgba(255,255,255,0.7);
     }
     * {
       box-sizing: border-box;
@@ -22,131 +22,92 @@
     html, body {
       margin: 0;
       padding: 0;
-      background: var(--light);
-      color: var(--deep-blue);
-      line-height: 1.7;
+      line-height: 1.6;
       scroll-behavior: smooth;
+      background-color: var(--light);
+      color: var(--light-text);
+      transition: all 0.3s ease;
     }
     header {
-      background: var(--light);
-      padding: 1rem 2rem;
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: var(--blue);
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      z-index: 100;
+      padding: 1rem 1.5rem;
+      background-color: var(--light);
+      color: var(--blue);
+      font-weight: bold;
+      font-size: 1.4rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       box-shadow: var(--shadow-raised);
-      flex-wrap: wrap;
+      z-index: 1000;
+      transition: all 0.3s ease;
     }
-    .logo {
-      flex-shrink: 0;
+    .menu-btn {
+      font-size: 1.4rem;
+      cursor: pointer;
+      border: none;
+      background: none;
+      color: var(--light-text);
     }
-    .nav-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-    .nav-container a {
-      text-decoration: none;
-      color: var(--deep-blue);
-      background: var(--light);
-      padding: 0.4rem 1rem;
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background-color: var(--light);
       border-radius: var(--radius);
       box-shadow: var(--shadow-raised);
-      transition: all 0.3s ease;
-      font-size: 0.9rem;
+      z-index: 999;
+      min-width: 200px;
+      flex-direction: column;
+      padding: 0.5rem 0;
     }
-    .nav-container a:hover {
-      background: var(--blue);
+    .dropdown-content a {
+      text-decoration: none;
+      color: var(--light-text);
+      padding: 0.7rem 1rem;
+      display: block;
+      transition: background 0.2s;
+    }
+    .dropdown-content a:hover {
+      background-color: var(--blue);
       color: white;
-      transform: scale(1.05);
     }
+    .show { display: flex; }
     section {
-      min-height: 100vh;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 6rem 2rem 4rem;
+      max-width: 800px;
+      margin: 6rem auto 2rem;
       background: var(--light);
-      box-shadow: var(--shadow-inset);
+      box-shadow: var(--shadow-raised);
       border-radius: var(--radius);
+      padding: 2rem;
       opacity: 0;
       transform: translateY(30px);
       animation: fadeInUp 0.8s ease forwards;
     }
-    section:nth-of-type(2) { animation-delay: 0.1s; }
-    section:nth-of-type(3) { animation-delay: 0.2s; }
-    section:nth-of-type(4) { animation-delay: 0.3s; }
-    section:nth-of-type(5) { animation-delay: 0.4s; }
-    section:nth-of-type(6) { animation-delay: 0.5s; }
-    section:nth-of-type(7) { animation-delay: 0.6s; }
-    section:nth-of-type(8) { animation-delay: 0.7s; }
-    section:nth-of-type(9) { animation-delay: 0.8s; }
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    h2 {
-      font-size: 1.5rem;
-      color: var(--blue);
-      border-left: 5px solid var(--deep-blue);
-      padding-left: 0.8rem;
-      margin-bottom: 1rem;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: var(--pale-blue);
-      color: var(--deep-blue);
-      box-shadow: var(--shadow-inset);
-    }
-    form input, form textarea, form button {
-      width: 100%;
-      padding: 0.6rem;
-      margin-top: 0.5rem;
-      border: none;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-raised);
-      font-size: 1rem;
-      transition: all 0.3s ease;
-    }
-    form input:focus, form textarea:focus {
-      outline: none;
-      box-shadow: inset 2px 2px 5px #d1d9e6, inset -2px -2px 5px #ffffff;
-    }
-    form button {
-      background: var(--blue);
-      color: white;
-      cursor: pointer;
-    }
-    form button:hover {
-      background: var(--deep-blue);
-      transform: scale(1.03);
-    }
-    @media (max-width: 800px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .nav-container {
-        justify-content: center;
-        width: 100%;
-        margin-top: 0.5rem;
-      }
+    @keyframes fadeInUp { to {opacity: 1; transform: translateY(0);} }
+    h2 { color: var(--blue); border-left: 4px solid var(--light-text); padding-left: 0.8rem; margin-bottom: 1rem; }
+    footer { text-align: center; padding: 1rem; background: var(--blue); color: white; border-radius: var(--radius) var(--radius) 0 0; margin-top: 2rem; }
+
+    /* ダークモード対応 */
+    @media (prefers-color-scheme: dark) {
+      html, body { background-color: var(--dark-bg); color: var(--dark-text); }
+      header { background-color: var(--dark-bg); color: var(--blue); }
+      .dropdown-content { background-color: var(--dark-bg); }
+      .dropdown-content a { color: var(--dark-text); }
+      .dropdown-content a:hover { background-color: var(--blue); color: white; }
+      section { background-color: #2c2c2c; }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo">いセえび公式サイト</div>
-    <nav class="nav-container">
+    いセえび公式サイト
+    <button class="menu-btn" onclick="toggleMenu()">☰ メニュー</button>
+    <div class="dropdown-content" id="dropdownMenu">
       <a href="#about">グループ紹介</a>
       <a href="#news">お知らせ</a>
       <a href="#members">メンバー</a>
@@ -156,10 +117,30 @@
       <a href="#support">サポーター募集</a>
       <a href="#guidelines">ガイドライン</a>
       <a href="#contact">お問い合わせ</a>
-    </nav>
+    </div>
   </header>
 
-  <!-- 以下、各 section を追加していく -->
+  <section id="about"><h2>グループ紹介</h2><p>ここにグループの説明文が入ります。</p></section>
+  <section id="news"><h2>お知らせ</h2><p>お知らせ内容がここに入ります。</p></section>
+  <section id="members"><h2>メンバー</h2><p>メンバー情報がここに入ります。</p></section>
 
+  <footer>© 2025 いセえび公式サイト</footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("dropdownMenu").classList.toggle("show");
+    }
+    window.onclick = function(event) {
+      if (!event.target.matches('.menu-btn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        for (let i = 0; i < dropdowns.length; i++) {
+          let openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+  </script>
 </body>
 </html>
