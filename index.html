@@ -21,12 +21,13 @@
       font-family: 'Noto Sans JP', sans-serif;
     }
 
-    body {
+    html, body {
       margin: 0;
       padding: 0;
       background: var(--light);
       color: var(--deep-blue);
       line-height: 1.7;
+      scroll-behavior: smooth;
     }
 
     header {
@@ -38,6 +39,9 @@
       box-shadow: var(--shadow-raised);
       border-radius: 0 0 var(--radius) var(--radius);
       color: var(--blue);
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
     nav {
@@ -47,6 +51,11 @@
       gap: 1rem;
       padding: 1rem;
       margin-bottom: 1rem;
+      background: var(--light);
+      box-shadow: var(--shadow-raised);
+      position: sticky;
+      top: 80px;
+      z-index: 9;
     }
 
     nav a {
@@ -66,9 +75,10 @@
     }
 
     section {
+      min-height: 100vh;
       max-width: 900px;
-      margin: 2rem auto;
-      padding: 2rem;
+      margin: 0 auto;
+      padding: 4rem 2rem;
       background: var(--light);
       box-shadow: var(--shadow-inset);
       border-radius: var(--radius);
@@ -106,7 +116,6 @@
       padding: 1rem;
       background: var(--pale-blue);
       color: var(--deep-blue);
-      margin-top: 2rem;
       box-shadow: var(--shadow-inset);
     }
 
@@ -142,6 +151,10 @@
         flex-direction: column;
         align-items: center;
       }
+
+      section {
+        padding: 3rem 1rem;
+      }
     }
   </style>
 </head>
@@ -161,6 +174,8 @@
     <a href="#guidelines">ガイドライン</a>
     <a href="#contact">お問い合わせ</a>
   </nav>
+
+  <!-- 以下の各 section はすでに存在し、1画面ごと見開き表示になりました -->
 
   <section id="about">
     <h2>グループ紹介</h2>
