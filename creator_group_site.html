@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>いセえび公式サイト</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --light: #f1f2f2;
+      --pale-blue: #c8d8e1;
+      --blue: #00adc1;
+      --deep-blue: #2d7282;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--light);
+      color: var(--deep-blue);
+    }
+
+    header {
+      background: var(--blue);
+      color: white;
+      padding: 1.2rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      background: var(--pale-blue);
+      padding: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--deep-blue);
+      text-decoration: none;
+      padding: 0.4rem 0.8rem;
+      border-radius: 12px;
+      background: var(--light);
+      box-shadow: 5px 5px 10px #d1d1d1, -5px -5px 10px #ffffff;
+    }
+
+    section {
+      margin: 2rem;
+      padding: 2rem;
+      border-radius: 20px;
+      background: var(--light);
+      box-shadow: inset 5px 5px 10px #d1d1d1, inset -5px -5px 10px #ffffff;
+    }
+
+    h2 {
+      color: var(--blue);
+      border-left: 5px solid var(--deep-blue);
+      padding-left: 0.5rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: var(--pale-blue);
+      color: var(--deep-blue);
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    いセえび公式サイト
+  </header>
+
+  <nav>
+    <a href="#about">グループ紹介</a>
+    <a href="#news">お知らせ</a>
+    <a href="#members">メンバー</a>
+    <a href="#goods">グッズ</a>
+    <a href="#events">イベント</a>
+    <a href="#achievements">実績</a>
+    <a href="#support">サポーター募集</a>
+    <a href="#guidelines">ガイドライン</a>
+    <a href="#contact">お問い合わせ</a>
+  </nav>
+
+  <section id="about">
+    <h2>グループ紹介</h2>
+    <p><strong>グループ名：</strong>いセえび</p>
+    <p><strong>キャッチコピー：</strong>全員主役。全員自由。だけど、なぜかまとまってる。</p>
+    <p><strong>紹介文：</strong>いんくりんくと鶴喰セアンによって創立された配信者のコミュニティ</p>
+  </section>
+
+  <section id="news">
+    <h2>お知らせ</h2>
+    <p>現在お知らせはありません。</p>
+  </section>
+
+  <section id="members">
+    <h2>メンバー紹介</h2>
+    <p>後日公開予定。</p>
+  </section>
+
+  <section id="goods">
+    <h2>グッズ紹介</h2>
+    <p>BOOTHにて出品中。</p>
+    <p><a href="https://booth.pm" target="_blank">BOOTHを見る</a></p>
+  </section>
+
+  <section id="events">
+    <h2>イベント告知</h2>
+    <p>現在予定されているイベントはありません。</p>
+  </section>
+
+  <section id="achievements">
+    <h2>実績</h2>
+    <p>現在掲載する実績はありません。</p>
+  </section>
+
+  <section id="support">
+    <h2>サポーター募集</h2>
+    <p>いセえびでは個人のクリエイターを募集しています。</p>
+    <ul>
+      <li>イラストレーター</li>
+      <li>Live2Dモデラー</li>
+      <li>映像クリエイター</li>
+      <li>グラフィックデザイナー</li>
+      <li>3Dモデラー</li>
+      <li>作曲家</li>
+      <li>その他の創作クリエイター</li>
+    </ul>
+    <p>※支援者特典は現在未定です。</p>
+  </section>
+
+  <section id="guidelines">
+    <h2>ガイドライン</h2>
+    <p>後日掲載予定です。</p>
+  </section>
+
+  <section id="contact">
+    <h2>お問い合わせ</h2>
+    <form>
+      <label>企業名:<br><input type="text" name="company" required></label><br><br>
+      <label>ご連絡先:<br><input type="email" name="email" required></label><br><br>
+      <label>お問い合わせ内容:<br><textarea name="message" rows="5" required></textarea></label><br><br>
+      <button type="submit">送信</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; いセえび All rights reserved.
+  </footer>
+</body>
+</html>
