@@ -1,161 +1,185 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>いセえび公式サイト</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>いせえび公式サイト</title>
   <style>
     :root {
-      --bg-light: #ffffff;
+      --bg-light: #fff;
       --bg-dark: #121212;
-      --text-light: #1a1a1a;
-      --text-dark: #f1f2f2;
-      --accent: #00adc1;
+      --text-color: #333;
+      --accent-color: #00adc1;
+      --shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
     body {
-      margin: 0; font-family: 'Noto Sans JP', sans-serif;
+      margin: 0;
+      font-family: 'Noto Sans JP', sans-serif;
       background: var(--bg-light);
-      color: var(--text-light);
-      transition: background 0.4s, color 0.4s;
-    }
-    body.dark-mode {
-      background: var(--bg-dark);
-      color: var(--text-dark);
+      color: var(--text-color);
     }
 
-    header {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
+    .globalHeader {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0.8rem 1.5rem;
-      background: rgba(255,255,255,0.9);
-      color: var(--accent);
-      backdrop-filter: blur(8px);
-      z-index: 1000;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      transition: background 0.4s;
-    }
-    body.dark-mode header {
-      background: rgba(18,18,18,0.95);
-    }
-
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: var(--accent);
-    }
-
-    nav {
-      display: flex;
-      gap: 1rem;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: inherit;
-      font-size: 1rem;
-      position: relative;
-    }
-    nav a::after {
-      content: "";
-      display: block;
-      width: 0; height: 2px;
-      background: var(--accent);
-      transition: width 0.3s;
-      position: absolute;
-      bottom: -3px; left: 0;
-    }
-    nav a:hover::after {
+      padding: 0.5rem 2rem;
+      background: var(--bg-light);
+      box-shadow: var(--shadow);
+      position: fixed;
       width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 999;
+      transition: background 0.3s;
     }
 
-    .dark-toggle {
-      cursor: pointer;
-      font-size: 1.2rem;
-      margin-left: 1rem;
-    }
-
-    section {
-      min-height: 100vh;
+    .globalHeader__logo {
+      flex-shrink: 0;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 6rem 2rem 4rem;
-      max-width: 960px;
-      margin: 0 auto;
-      transition: background 0.4s;
+      align-items: center;
     }
 
-    section:nth-child(even) {
-      background: rgba(0, 172, 193, 0.05);
-    }
-    body.dark-mode section:nth-child(even) {
-      background: rgba(255, 255, 255, 0.05);
-    }
-
-    h2 {
-      font-size: 2rem;
-      color: var(--accent);
-      margin-bottom: 1rem;
+    .globalHeader__logoImg img {
+      height: 50px;
+      width: auto;
+      transition: height 0.3s;
     }
 
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: var(--accent);
-      color: white;
+    .globalHeader__nav {
+      flex-grow: 1;
+      display: flex;
+      justify-content: flex-end;
     }
 
-    @media (max-width: 768px) {
-      nav {
-        display: none;
+    .globalHeader__navList {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .globalHeader__navItem {
+      margin-left: 1.5rem;
+    }
+
+    .globalHeader__navLink {
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: bold;
+      font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+
+    .globalHeader__navLink:hover {
+      color: var(--accent-color);
+    }
+
+    .globalHeader__menuButton {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .globalHeader__menuIcon {
+      width: 24px;
+      height: 2px;
+      background: var(--text-color);
+      position: relative;
+      display: inline-block;
+    }
+
+    .globalHeader__menuIcon::before,
+    .globalHeader__menuIcon::after {
+      content: "";
+      width: 24px;
+      height: 2px;
+      background: var(--text-color);
+      position: absolute;
+      left: 0;
+      transition: transform 0.3s;
+    }
+
+    .globalHeader__menuIcon::before { top: -8px; }
+    .globalHeader__menuIcon::after { top: 8px; }
+
+    @media (max-width: 760px) {
+      .globalHeader {
+        padding: 0.5rem 1rem;
       }
-      .menu-btn {
+      .globalHeader__logoImg img {
+        height: 40px;
+      }
+      .globalHeader__nav {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        background: var(--bg-light);
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 200px;
+        padding: 1rem;
+        box-shadow: var(--shadow);
+      }
+      .globalHeader__navList {
+        flex-direction: column;
+        width: 100%;
+      }
+      .globalHeader__navItem {
+        margin: 0.5rem 0;
+      }
+      .globalHeader__menuButton {
         display: block;
+      }
+      .globalHeader--navOpen .globalHeader__nav {
+        display: flex;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo">いセえび公式サイト</div>
-    <nav>
-      <a href="#about">グループ紹介</a>
-      <a href="#news">お知らせ</a>
-      <a href="#members">メンバー</a>
-      <a href="#goods">グッズ</a>
-      <a href="#events">イベント</a>
-      <a href="#achievements">実績</a>
-      <a href="#support">サポーター募集</a>
-      <a href="#guidelines">ガイドライン</a>
-      <a href="#contact">お問い合わせ</a>
+  <header class="globalHeader">
+    <h1 class="globalHeader__logo">
+      <a class="globalHeader__logoLink" href="#">
+        <picture class="globalHeader__logoImg">
+          <source srcset="いセえびロゴ黒.png" media="(max-width: 760px)">
+          <img src="いセえびロゴ黒.png" alt="いせえび公式ロゴ">
+        </picture>
+      </a>
+    </h1>
+
+    <nav class="globalHeader__nav">
+      <ul class="globalHeader__navList">
+        <li class="globalHeader__navItem"><a class="globalHeader__navLink" href="#about">ABOUT</a></li>
+        <li class="globalHeader__navItem"><a class="globalHeader__navLink" href="#members">MEMBERS</a></li>
+        <li class="globalHeader__navItem"><a class="globalHeader__navLink" href="#goods">GOODS</a></li>
+        <li class="globalHeader__navItem"><a class="globalHeader__navLink" href="#news">NEWS</a></li>
+        <li class="globalHeader__navItem"><a class="globalHeader__navLink" href="#guide">GUIDE</a></li>
+        <li class="globalHeader__navItem"><a class="globalHeader__navLink" href="#support">SUPPORTER</a></li>
+        <li class="globalHeader__navItem"><a class="globalHeader__navLink" href="#contact">CONTACT</a></li>
+      </ul>
     </nav>
-    <div class="dark-toggle" onclick="toggleDarkMode()">🌙</div>
+
+    <button class="globalHeader__menuButton" type="button" aria-label="メニュー開閉">
+      <span class="globalHeader__menuIcon"></span>
+    </button>
   </header>
 
-  <section id="about">
-    <h2>グループ紹介</h2>
-    <p>ここにグループの説明文が入ります。</p>
-  </section>
-
-  <section id="news">
-    <h2>お知らせ</h2>
-    <p>お知らせ内容が入ります。</p>
-  </section>
-
-  <footer>
-    &copy; 2025 いセえび公式サイト
-  </footer>
+  <main style="padding-top: 80px;">
+    <section id="about" style="padding: 2rem;">
+      <h2>ABOUT</h2>
+      <p>ここにグループ紹介文を入れてください。</p>
+    </section>
+    <!-- 他のセクションも同様に追加 -->
+  </main>
 
   <script>
-    function toggleDarkMode() {
-      document.body.classList.toggle("dark-mode");
-    }
+    document.querySelector('.globalHeader__menuButton').addEventListener('click', () => {
+      document.querySelector('.globalHeader').classList.toggle('globalHeader--navOpen');
+    });
   </script>
 </body>
 </html>
