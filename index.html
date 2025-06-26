@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --light: #f1f2f2;
+      --light-bg: #f1f2f2;
       --dark-bg: #1e1e1e;
       --light-text: #2d7282;
       --dark-text: #f1f2f2;
@@ -17,39 +17,50 @@
     }
     * { box-sizing: border-box; font-family: 'Noto Sans JP', sans-serif; }
     html, body {
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
       line-height: 1.6;
       scroll-behavior: smooth;
-      background-color: var(--light);
+      background: var(--light-bg);
       color: var(--light-text);
       transition: all 0.3s ease;
     }
+    body.dark-mode {
+      background: var(--dark-bg);
+      color: var(--dark-text);
+    }
     header {
-      position: fixed;
-      top: 0; left: 0; width: 100%;
+      position: fixed; top: 0; left: 0; width: 100%;
       display: flex; justify-content: space-between; align-items: center;
       padding: 1rem 1.5rem;
-      background: var(--light);
+      background: var(--light-bg);
       color: var(--blue);
       box-shadow: var(--shadow-raised);
       z-index: 1000;
+      transition: background 0.3s;
     }
+    body.dark-mode header { background: var(--dark-bg); }
     .logo { font-weight: bold; font-size: 1.4rem; }
     nav { display: flex; gap: 1rem; }
     nav a {
       text-decoration: none; color: var(--light-text);
-      padding: 0.4rem 0.8rem; border-radius: var(--radius);
-      transition: all 0.3s;
+      padding: 0.4rem 0.8rem; border-radius: var(--radius); transition: all 0.3s;
     }
     nav a:hover { background: var(--blue); color: white; }
-    .menu-btn { display: none; font-size: 1.4rem; cursor: pointer; background: none; border: none; color: var(--light-text); }
-    .dropdown-content { display: none; flex-direction: column; position: absolute; top: 60px; right: 20px; background: var(--light); border-radius: var(--radius); box-shadow: var(--shadow-raised); z-index: 999; min-width: 200px; }
+    body.dark-mode nav a { color: var(--dark-text); }
+    .menu-btn, .theme-btn {
+      font-size: 1.4rem; cursor: pointer;
+      background: none; border: none; color: var(--light-text);
+      margin-left: 0.5rem;
+    }
+    body.dark-mode .menu-btn, body.dark-mode .theme-btn { color: var(--dark-text); }
+    .dropdown-content { display: none; flex-direction: column; position: absolute; top: 60px; right: 60px; background: var(--light-bg); border-radius: var(--radius); box-shadow: var(--shadow-raised); z-index: 999; min-width: 200px; }
     .dropdown-content a { padding: 0.7rem 1rem; display: block; }
     .dropdown-content a:hover { background: var(--blue); color: white; }
+    body.dark-mode .dropdown-content { background: var(--dark-bg); }
     .show { display: flex; }
 
-    section { max-width: 800px; margin: 6rem auto 2rem; background: var(--light); box-shadow: var(--shadow-raised); border-radius: var(--radius); padding: 2rem; opacity: 0; transform: translateY(30px); animation: fadeInUp 0.8s ease forwards; }
+    section { max-width: 800px; margin: 6rem auto 2rem; background: var(--light-bg); box-shadow: var(--shadow-raised); border-radius: var(--radius); padding: 2rem; opacity: 0; transform: translateY(30px); animation: fadeInUp 0.8s ease forwards; transition: background 0.3s; }
+    body.dark-mode section { background: #2c2c2c; }
     @keyframes fadeInUp { to {opacity: 1; transform: translateY(0);} }
     h2 { color: var(--blue); border-left: 4px solid var(--light-text); padding-left: 0.8rem; margin-bottom: 1rem; }
     footer { text-align: center; padding: 1rem; background: var(--blue); color: white; border-radius: var(--radius) var(--radius) 0 0; margin-top: 2rem; }
@@ -57,15 +68,6 @@
     @media (max-width: 800px) {
       nav { display: none; }
       .menu-btn { display: block; }
-    }
-
-    @media (prefers-color-scheme: dark) {
-      html, body { background: var(--dark-bg); color: var(--dark-text); }
-      header { background: var(--dark-bg); }
-      .dropdown-content { background: var(--dark-bg); }
-      .dropdown-content a { color: var(--dark-text); }
-      .dropdown-content a:hover { background: var(--blue); color: white; }
-      section { background: #2c2c2c; }
     }
   </style>
 </head>
@@ -77,7 +79,10 @@
       <a href="#goods">グッズ</a><a href="#events">イベント</a><a href="#achievements">実績</a>
       <a href="#support">サポーター募集</a><a href="#guidelines">ガイドライン</a><a href="#contact">お問い合わせ</a>
     </nav>
-    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    <div>
+      <button class="menu-btn" onclick="toggleMenu()">☰</button>
+      <button class="theme-btn" onclick="toggleTheme()">🌙</button>
+    </div>
     <div class="dropdown-content" id="dropdownMenu">
       <a href="#about">グループ紹介</a><a href="#news">お知らせ</a><a href="#members">メンバー</a>
       <a href="#goods">グッズ</a><a href="#events">イベント</a><a href="#achievements">実績</a>
@@ -86,7 +91,6 @@
   </header>
 
   <section id="about"><h2>グループ紹介</h2><p>ここにグループの説明文が入ります。</p></section>
-  <section id="news"><h2>お知らせ</h2><p>お知らせ内容がここに入ります。</p></section>
 
   <footer>© 2025 いセえび公式サイト</footer>
 
@@ -96,10 +100,17 @@
     }
     window.onclick = function(event) {
       if (!event.target.matches('.menu-btn')) {
-        const dropdowns = document.getElementsByClassName("dropdown-content");
-        for (let d of dropdowns) d.classList.remove('show');
+        document.getElementById("dropdownMenu").classList.remove('show');
       }
     }
+    function toggleTheme() {
+      document.body.classList.toggle("dark-mode");
+      localStorage.setItem("theme", document.body.classList.contains("dark-mode") ? "dark" : "light");
+    }
+    window.addEventListener("load", () => {
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "dark") document.body.classList.add("dark-mode");
+    });
   </script>
 </body>
 </html>
