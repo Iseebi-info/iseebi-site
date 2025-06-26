@@ -4,114 +4,136 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>いセえび公式サイト</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet"/>
   <style>
     :root {
       --light-bg: #f1f2f2;
-      --dark-bg: #1e1e1e;
       --light-text: #2d7282;
+      --light-header: white;
+
+      --dark-bg: #121212;
       --dark-text: #f1f2f2;
-      --blue: #00adc1;
-      --radius: 16px;
-      --shadow-raised: 8px 8px 16px rgba(0,0,0,0.1), -8px -8px 16px rgba(255,255,255,0.7);
+      --dark-header: #000;
+
+      --accent: #00adc1;
+      --radius: 12px;
+      --shadow: 6px 6px 12px rgba(0,0,0,0.1), -6px -6px 12px rgba(255,255,255,0.7);
     }
-    * { box-sizing: border-box; font-family: 'Noto Sans JP', sans-serif; }
+
     html, body {
       margin: 0; padding: 0;
       line-height: 1.6;
       scroll-behavior: smooth;
+      font-family: 'Noto Sans JP', sans-serif;
       background: var(--light-bg);
       color: var(--light-text);
       transition: all 0.3s ease;
     }
-    body.dark-mode {
+    body.dark-mode, html.dark-mode {
       background: var(--dark-bg);
       color: var(--dark-text);
     }
+
     header {
-      position: fixed; top: 0; left: 0; width: 100%;
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 1rem 1.5rem;
-      background: var(--light-bg);
-      color: var(--blue);
-      box-shadow: var(--shadow-raised);
-      z-index: 1000;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      background: var(--light-header);
+      color: var(--accent);
+      font-size: 1.4rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.6rem 1rem;
+      z-index: 100;
+      transition: all 0.3s ease;
+    }
+    body.dark-mode header {
+      background: var(--dark-header);
+    }
+
+    .nav-container {
+      display: flex;
+      gap: 1rem;
+    }
+    .nav-container a {
+      text-decoration: none;
+      color: inherit;
+      padding: 0.4rem 0.8rem;
+      border-radius: var(--radius);
       transition: background 0.3s;
     }
-    body.dark-mode header { background: var(--dark-bg); }
-    .logo { font-weight: bold; font-size: 1.4rem; }
-    nav { display: flex; gap: 1rem; }
-    nav a {
-      text-decoration: none; color: var(--light-text);
-      padding: 0.4rem 0.8rem; border-radius: var(--radius); transition: all 0.3s;
+    .nav-container a:hover {
+      background: var(--accent);
+      color: white;
     }
-    nav a:hover { background: var(--blue); color: white; }
-    body.dark-mode nav a { color: var(--dark-text); }
-    .menu-btn, .theme-btn {
-      font-size: 1.4rem; cursor: pointer; background: none; border: none;
-      color: var(--light-text); margin-left: 0.5rem;
+
+    .toggle-dark {
+      font-size: 1.2rem;
+      cursor: pointer;
     }
-    body.dark-mode .menu-btn, body.dark-mode .theme-btn { color: var(--dark-text); }
-    .dropdown-content { display: none; flex-direction: column; position: absolute; top: 60px; right: 20px; background: var(--light-bg); border-radius: var(--radius); box-shadow: var(--shadow-raised); z-index: 999; min-width: 200px; }
-    .dropdown-content a { padding: 0.7rem 1rem; display: block; }
-    .dropdown-content a:hover { background: var(--blue); color: white; }
-    body.dark-mode .dropdown-content { background: var(--dark-bg); }
-    .show { display: flex; }
-    section { max-width: 800px; margin: 6rem auto 2rem; background: var(--light-bg); box-shadow: var(--shadow-raised); border-radius: var(--radius); padding: 2rem; opacity: 0; transform: translateY(30px); animation: fadeInUp 0.8s ease forwards; transition: background 0.3s; }
-    body.dark-mode section { background: #2c2c2c; }
-    @keyframes fadeInUp { to {opacity: 1; transform: translateY(0);} }
-    h2 { color: var(--blue); border-left: 4px solid var(--light-text); padding-left: 0.8rem; margin-bottom: 1rem; }
-    footer { text-align: center; padding: 1rem; background: var(--blue); color: white; border-radius: var(--radius) var(--radius) 0 0; margin-top: 2rem; }
-    /* スマホ表示切替 */
-    @media (max-width: 800px) {
-      nav { display: none; }
-      .menu-btn { display: inline; }
+
+    section {
+      max-width: 900px;
+      margin: 5rem auto 2rem;
+      padding: 2rem;
+      background: var(--light-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
     }
-    @media (min-width: 801px) {
-      .menu-btn { display: none; }
+    body.dark-mode section {
+      background: #222;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      color: var(--accent);
+      border-left: 4px solid var(--accent);
+      padding-left: 0.8rem;
+      margin-bottom: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: var(--accent);
+      color: white;
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo">いセえび公式サイト</div>
-    <nav>
-      <a href="#about">グループ紹介</a><a href="#news">お知らせ</a><a href="#members">メンバー</a>
-      <a href="#goods">グッズ</a><a href="#events">イベント</a><a href="#achievements">実績</a>
-      <a href="#support">サポーター募集</a><a href="#guidelines">ガイドライン</a><a href="#contact">お問い合わせ</a>
-    </nav>
-    <div>
-      <button class="menu-btn" onclick="toggleMenu()">☰</button>
-      <button class="theme-btn" onclick="toggleTheme()">🌙</button>
-    </div>
-    <div class="dropdown-content" id="dropdownMenu">
-      <a href="#about">グループ紹介</a><a href="#news">お知らせ</a><a href="#members">メンバー</a>
-      <a href="#goods">グッズ</a><a href="#events">イベント</a><a href="#achievements">実績</a>
-      <a href="#support">サポーター募集</a><a href="#guidelines">ガイドライン</a><a href="#contact">お問い合わせ</a>
+    <div>いセえび公式サイト</div>
+    <div class="nav-container">
+      <a href="#about">グループ紹介</a>
+      <a href="#news">お知らせ</a>
+      <a href="#members">メンバー</a>
+      <a href="#goods">グッズ</a>
+      <a href="#events">イベント</a>
+      <a href="#achievements">実績</a>
+      <a href="#support">サポーター募集</a>
+      <a href="#guidelines">ガイドライン</a>
+      <a href="#contact">お問い合わせ</a>
+      <span class="toggle-dark" onclick="toggleDarkMode()">🌙</span>
     </div>
   </header>
 
-  <section id="about"><h2>グループ紹介</h2><p>ここにグループの説明文が入ります。</p></section>
+  <section id="about">
+    <h2>グループ紹介</h2>
+    <p>ここにグループの説明文が入ります。</p>
+  </section>
 
-  <footer>© 2025 いセえび公式サイト</footer>
+  <footer>
+    &copy; 2025 いセえび公式サイト
+  </footer>
 
   <script>
-    function toggleMenu() {
-      document.getElementById("dropdownMenu").classList.toggle("show");
-    }
-    window.onclick = function(event) {
-      if (!event.target.matches('.menu-btn')) {
-        document.getElementById("dropdownMenu").classList.remove('show');
-      }
-    }
-    function toggleTheme() {
+    function toggleDarkMode() {
       document.body.classList.toggle("dark-mode");
-      localStorage.setItem("theme", document.body.classList.contains("dark-mode") ? "dark" : "light");
+      document.documentElement.classList.toggle("dark-mode");
     }
-    window.addEventListener("load", () => {
-      const savedTheme = localStorage.getItem("theme");
-      if (savedTheme === "dark") document.body.classList.add("dark-mode");
-    });
   </script>
 </body>
 </html>
