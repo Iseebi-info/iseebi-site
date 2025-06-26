@@ -49,12 +49,16 @@
 
     .nav-container {
       position: fixed;
-      top: 60px;
-      right: 20px;
-      z-index: 90;
+      top: 0;
+      right: 2rem;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
+      align-items: center;
+      height: 100%;
+      z-index: 101;
+    }
+
+    nav {
+      display: flex;
       gap: 0.5rem;
       background: var(--light);
       padding: 0.5rem 1rem;
@@ -153,11 +157,20 @@
 
     @media (max-width: 600px) {
       .nav-container {
-        justify-content: center;
-        top: 100px;
+        position: fixed;
+        top: auto;
+        bottom: 0;
         right: 0;
         left: 0;
+        justify-content: center;
+        padding: 0.5rem;
       }
+
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
       section {
         padding: 5rem 1rem 3rem;
       }
@@ -167,21 +180,20 @@
 <body>
   <header>
     いセえび公式サイト
+    <div class="nav-container">
+      <nav>
+        <a href="#about">グループ紹介</a>
+        <a href="#news">お知らせ</a>
+        <a href="#members">メンバー</a>
+        <a href="#goods">グッズ</a>
+        <a href="#events">イベント</a>
+        <a href="#achievements">実績</a>
+        <a href="#support">サポーター募集</a>
+        <a href="#guidelines">ガイドライン</a>
+        <a href="#contact">お問い合わせ</a>
+      </nav>
+    </div>
   </header>
-
-  <div class="nav-container">
-    <nav>
-      <a href="#about">グループ紹介</a>
-      <a href="#news">お知らせ</a>
-      <a href="#members">メンバー</a>
-      <a href="#goods">グッズ</a>
-      <a href="#events">イベント</a>
-      <a href="#achievements">実績</a>
-      <a href="#support">サポーター募集</a>
-      <a href="#guidelines">ガイドライン</a>
-      <a href="#contact">お問い合わせ</a>
-    </nav>
-  </div>
 
   <!-- 以下 section はそのまま -->
 </body>
