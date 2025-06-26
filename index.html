@@ -48,26 +48,27 @@
     nav a:hover { background: var(--blue); color: white; }
     body.dark-mode nav a { color: var(--dark-text); }
     .menu-btn, .theme-btn {
-      font-size: 1.4rem; cursor: pointer;
-      background: none; border: none; color: var(--light-text);
-      margin-left: 0.5rem;
+      font-size: 1.4rem; cursor: pointer; background: none; border: none;
+      color: var(--light-text); margin-left: 0.5rem;
     }
     body.dark-mode .menu-btn, body.dark-mode .theme-btn { color: var(--dark-text); }
-    .dropdown-content { display: none; flex-direction: column; position: absolute; top: 60px; right: 60px; background: var(--light-bg); border-radius: var(--radius); box-shadow: var(--shadow-raised); z-index: 999; min-width: 200px; }
+    .dropdown-content { display: none; flex-direction: column; position: absolute; top: 60px; right: 20px; background: var(--light-bg); border-radius: var(--radius); box-shadow: var(--shadow-raised); z-index: 999; min-width: 200px; }
     .dropdown-content a { padding: 0.7rem 1rem; display: block; }
     .dropdown-content a:hover { background: var(--blue); color: white; }
     body.dark-mode .dropdown-content { background: var(--dark-bg); }
     .show { display: flex; }
-
     section { max-width: 800px; margin: 6rem auto 2rem; background: var(--light-bg); box-shadow: var(--shadow-raised); border-radius: var(--radius); padding: 2rem; opacity: 0; transform: translateY(30px); animation: fadeInUp 0.8s ease forwards; transition: background 0.3s; }
     body.dark-mode section { background: #2c2c2c; }
     @keyframes fadeInUp { to {opacity: 1; transform: translateY(0);} }
     h2 { color: var(--blue); border-left: 4px solid var(--light-text); padding-left: 0.8rem; margin-bottom: 1rem; }
     footer { text-align: center; padding: 1rem; background: var(--blue); color: white; border-radius: var(--radius) var(--radius) 0 0; margin-top: 2rem; }
-
+    /* スマホ表示切替 */
     @media (max-width: 800px) {
       nav { display: none; }
-      .menu-btn { display: block; }
+      .menu-btn { display: inline; }
+    }
+    @media (min-width: 801px) {
+      .menu-btn { display: none; }
     }
   </style>
 </head>
