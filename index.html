@@ -1,75 +1,99 @@
-<style>
-  :root {
-    --bg-light: #fff;
-    --text-color: #003366;
-    --accent-color: #00adc1;
-    --shadow: 0 4px 10px rgba(0,0,0,0.1);
-  }
-  body {
-    margin: 0;
-    font-family: 'Yu Gothic', '游ゴシック体', 'Meiryo', sans-serif;
-    background: var(--bg-light);
-    color: var(--text-color);
-  }
-  .globalHeader {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0.2rem 1rem; /* 高さを狭く */
-    background: linear-gradient(135deg, #00adc1, #2d7282);
-    color: white;
-    box-shadow: var(--shadow);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 999;
-    overflow-x: hidden;
-  }
-  .globalHeader__logo img {
-    height: 120px; /* ロゴを大きく */
-    width: auto;
-    transition: height 0.3s;
-  }
-  @media (max-width: 760px) {
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>いせえび公式サイト</title>
+  <style>
+    :root {
+      --bg-light: #fff;
+      --text-color: #003366;
+      --accent-color: #00adc1;
+      --shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    body {
+      margin: 0;
+      font-family: 'Yu Gothic', '游ゴシック体', 'Meiryo', sans-serif;
+      background: var(--bg-light);
+      color: var(--text-color);
+    }
+    .globalHeader {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0.2rem 1rem;
+      background: linear-gradient(135deg, #00adc1, #2d7282);
+      color: white;
+      box-shadow: var(--shadow);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 999;
+      overflow-x: hidden;
+    }
     .globalHeader__logo img {
-      height: 100px;
+      height: 120px;
+      width: auto;
+      transition: height 0.3s;
     }
-  }
-  .hero {
-    height: 90vh;
-    background: url('your-visual-image.jpg') center/cover no-repeat;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-    text-align: center;
-  }
-  .hero h2, .hero p {
-    color: #003366;
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
-    margin: 0.5rem 0;
-  }
-  .hero h2 {
-    font-size: 3rem;
-    font-weight: bold;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 1s forwards;
-  }
-  .hero p {
-    font-size: 1.5rem;
-    font-weight: 500;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 1s forwards;
-    animation-delay: 0.5s;
-  }
-  @keyframes fadeInUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
+    @media (max-width: 760px) {
+      .globalHeader__logo img {
+        height: 100px;
+      }
     }
-  }
-</style>
+    .hero {
+      height: 90vh;
+      background: url('your-visual-image.jpg') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      text-align: center;
+    }
+    .hero h2, .hero p {
+      color: #003366;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+      margin: 0.5rem 0;
+    }
+    .hero h2 {
+      font-size: 3rem;
+      font-weight: bold;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s forwards;
+    }
+    .hero p {
+      font-size: 1.5rem;
+      font-weight: 500;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s forwards;
+      animation-delay: 0.5s;
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="globalHeader">
+    <h1 class="globalHeader__logo">
+      <a href="#">
+        <img src="いセえびロゴ黒.png" alt="いせえび公式ロゴ">
+      </a>
+    </h1>
+  </header>
+
+  <section class="hero">
+    <h2>いせえび公式サイトへようこそ！</h2>
+    <p>全員主役。全員自由。だけど、なぜかまとまってる。</p>
+  </section>
+
+</body>
+</html>
