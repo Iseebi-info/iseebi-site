@@ -1,55 +1,61 @@
-<nav class="mainNav">
-  <ul>
-    <li><a href="#about">ABOUT</a></li>
-    <li><a href="#members">MEMBERS</a></li>
-    <li><a href="#goods">GOODS</a></li>
-    <li><a href="#events">EVENTS</a></li>
-    <li><a href="#news">NEWS</a></li>
-    <li><a href="#support">SUPPORTER</a></li>
-    <li><a href="#contact">CONTACT</a></li>
-  </ul>
-</nav>
-
 <style>
-  :root {
-    --bg-light: #fff;
-    --text-color: #003366;
-    --accent-color: #00adc1;
-    --shadow: 0 4px 10px rgba(0,0,0,0.1);
-  }
-  html {
-    scroll-behavior: smooth;
-  }
   body {
-    margin: 0;
+    background: linear-gradient(180deg, #f0f4f8, #d9e2ec);
     font-family: 'Yu Gothic', '游ゴシック体', 'Meiryo', sans-serif;
-    background: var(--bg-light);
-    color: var(--text-color);
+    color: #003366;
   }
-  .mainNav {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    padding: 1rem;
-    background: #f0f0f0;
-    position: sticky;
-    top: 120px;
-    z-index: 998;
+  section {
+    max-width: 1000px;
+    margin: 4rem auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    padding: 2rem;
   }
-  .mainNav ul {
-    list-style: none;
-    display: flex;
-    gap: 1rem;
-    margin: 0;
-    padding: 0;
+  section h2 {
+    font-size: 2rem;
+    color: #003366;
+    border-bottom: 3px solid #00adc1;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
   }
-  .mainNav a {
-    text-decoration: none;
-    color: var(--text-color);
-    font-weight: bold;
-    transition: color 0.3s;
-  }
-  .mainNav a:hover {
-    color: var(--accent-color);
+  section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
   }
 </style>
+
+<section id="about">
+  <h2>ABOUT</h2>
+  <p>いせえびは、全員が主役で自由に活動する配信者グループです。個性的なメンバーが集い、様々なコンテンツをお届けします。</p>
+</section>
+
+<section id="members">
+  <h2>MEMBERS</h2>
+  <p>ここに各メンバーのプロフィールやSNSリンクを掲載します。</p>
+</section>
+
+<section id="goods">
+  <h2>GOODS</h2>
+  <p>BOOTHなどで販売している公式グッズを紹介します。</p>
+</section>
+
+<section id="events">
+  <h2>EVENTS</h2>
+  <p>今後開催予定のイベント情報を掲載します。</p>
+</section>
+
+<section id="news">
+  <h2>NEWS</h2>
+  <p>グループに関するお知らせや最新情報を更新していきます。</p>
+</section>
+
+<section id="support">
+  <h2>SUPPORTER</h2>
+  <p>イラストやモデリングなど、グループを支えてくれるクリエイター・サポーターを募集しています。</p>
+</section>
+
+<section id="contact">
+  <h2>CONTACT</h2>
+  <p>お仕事の依頼やお問い合わせはこちらから。</p>
+</section>
