@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>いせえび公式サイト</title>
   <style>
     :root {
@@ -12,14 +12,12 @@
       --accent-color: #00adc1;
       --shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
-
     body {
       margin: 0;
       font-family: 'Noto Sans JP', sans-serif;
       background: var(--bg-light);
       color: var(--text-color);
     }
-
     .globalHeader {
       display: flex;
       justify-content: space-between;
@@ -33,56 +31,52 @@
       left: 0;
       z-index: 999;
       transition: background 0.3s;
+      overflow-x: hidden;
     }
-
     .globalHeader__logo {
       flex-shrink: 0;
       display: flex;
       align-items: center;
     }
-
     .globalHeader__logoImg img {
-      height: 50px;
+      height: 60px; /* PCロゴ大きく */
       width: auto;
       transition: height 0.3s;
     }
-
     .globalHeader__nav {
       flex-grow: 1;
       display: flex;
       justify-content: flex-end;
     }
-
     .globalHeader__navList {
       display: flex;
+      flex-wrap: wrap; /* はみ出さないよう折り返し */
+      justify-content: flex-end;
       list-style: none;
       margin: 0;
       padding: 0;
+      gap: 1rem;
     }
-
     .globalHeader__navItem {
-      margin-left: 1.5rem;
+      flex-shrink: 0;
     }
-
     .globalHeader__navLink {
       text-decoration: none;
       color: var(--text-color);
       font-weight: bold;
       font-size: 0.9rem;
       transition: color 0.3s;
+      white-space: nowrap; /* メニュー名折り返さない */
     }
-
     .globalHeader__navLink:hover {
       color: var(--accent-color);
     }
-
     .globalHeader__menuButton {
       display: none;
       background: none;
       border: none;
       cursor: pointer;
     }
-
     .globalHeader__menuIcon {
       width: 24px;
       height: 2px;
@@ -90,7 +84,6 @@
       position: relative;
       display: inline-block;
     }
-
     .globalHeader__menuIcon::before,
     .globalHeader__menuIcon::after {
       content: "";
@@ -101,16 +94,14 @@
       left: 0;
       transition: transform 0.3s;
     }
-
     .globalHeader__menuIcon::before { top: -8px; }
-    .globalHeader__menuIcon::after { top: 8px; }
-
+    .globalHeader__menuIcon::after  { top: 8px; }
     @media (max-width: 760px) {
       .globalHeader {
         padding: 0.5rem 1rem;
       }
       .globalHeader__logoImg img {
-        height: 40px;
+        height: 50px; /* スマホロゴ */
       }
       .globalHeader__nav {
         display: none;
@@ -120,7 +111,9 @@
         position: absolute;
         top: 100%;
         right: 0;
-        width: 200px;
+        max-height: calc(100vh - 60px); /* 高さ制限で画面外にはみ出さない */
+        overflow-y: auto;               /* 多い項目もスクロール可能に */
+        width: 100%;                    /* 画面幅いっぱい */
         padding: 1rem;
         box-shadow: var(--shadow);
       }
@@ -156,6 +149,7 @@
         <li class="globalHeader__navItem"><a class="globalHeader__navLink" href="#about">ABOUT</a></li>
         <li class="globalHeader__navItem"><a class="globalHeader__navLink" href="#members">MEMBERS</a></li>
         <li class="globalHeader__navItem"><a class="globalHeader__navLink" href="#goods">GOODS</a></li>
+        <li class="globalHeader__navItem"><a class="globalHeader__navLink" href="#events">EVENTS</a></li>
         <li class="globalHeader__navItem"><a class="globalHeader__navLink" href="#news">NEWS</a></li>
         <li class="globalHeader__navItem"><a class="globalHeader__navLink" href="#guide">GUIDE</a></li>
         <li class="globalHeader__navItem"><a class="globalHeader__navLink" href="#support">SUPPORTER</a></li>
