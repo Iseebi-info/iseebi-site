@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>いせえび公式サイト</title>
   <style>
     :root {
@@ -19,18 +19,18 @@
     }
     .globalHeader {
       display: flex;
-      flex-direction: column;          /* 縦並び */
-      align-items: center;             /* 中央揃え */
+      flex-direction: column;
+      align-items: center;
       justify-content: flex-start;
       padding: 0.5rem 1rem;
-      background: var(--bg-light);
+      background: linear-gradient(135deg, #00adc1, #2d7282);
+      color: white;
       box-shadow: var(--shadow);
       position: fixed;
       width: 100%;
       top: 0;
       left: 0;
       z-index: 999;
-      transition: background 0.3s;
       overflow-x: hidden;
     }
     .globalHeader__logo {
@@ -39,7 +39,7 @@
       justify-content: center;
     }
     .globalHeader__logoImg img {
-      height: 60px; /* ロゴサイズ大きめ */
+      height: 100px;
       width: auto;
       transition: height 0.3s;
     }
@@ -61,17 +61,23 @@
     }
     .globalHeader__navItem {
       flex-shrink: 0;
+      text-align: center;
+    }
+    .globalHeader__navLabelMain {
+      font-weight: bold;
+      font-size: 0.8rem;
+    }
+    .globalHeader__navLabelSub {
+      font-size: 0.6rem;
+      color: #f1f2f2;
     }
     .globalHeader__navLink {
       text-decoration: none;
-      color: var(--text-color);
-      font-weight: bold;
-      font-size: 0.9rem;
-      transition: color 0.3s;
-      white-space: nowrap;
+      color: white;
+      display: block;
     }
     .globalHeader__navLink:hover {
-      color: var(--accent-color);
+      color: #f1f2f2;
     }
     .globalHeader__menuButton {
       display: none;
@@ -83,7 +89,7 @@
     .globalHeader__menuIcon {
       width: 24px;
       height: 2px;
-      background: var(--text-color);
+      background: white;
       position: relative;
       display: inline-block;
     }
@@ -92,7 +98,7 @@
       content: "";
       width: 24px;
       height: 2px;
-      background: var(--text-color);
+      background: white;
       position: absolute;
       left: 0;
       transition: transform 0.3s;
@@ -100,16 +106,17 @@
     .globalHeader__menuIcon::before { top: -8px; }
     .globalHeader__menuIcon::after  { top: 8px; }
     @media (max-width: 760px) {
+      .globalHeader__logoImg img { height: 80px; }
       .globalHeader__nav {
         display: none;
         flex-direction: column;
         align-items: center;
-        background: var(--bg-light);
+        background: linear-gradient(135deg, #00adc1, #2d7282);
         position: absolute;
         top: 100%;
         left: 0;
         right: 0;
-        max-height: calc(100vh - 60px);
+        max-height: calc(100vh - 80px);
         overflow-y: auto;
         width: 100%;
         padding: 1rem;
@@ -129,6 +136,38 @@
         display: flex;
       }
     }
+    .hero {
+      height: 90vh;
+      background: url('your-visual-image.jpg') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.6);
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s forwards;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s forwards;
+      animation-delay: 0.5s;
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   </style>
 </head>
 <body>
@@ -141,24 +180,67 @@
         </picture>
       </a>
     </h1>
-
     <nav class="globalHeader__nav">
       <ul class="globalHeader__navList">
-        <li class="globalHeader__navItem"><a class="globalHeader__navLink" href="#about">ABOUT</a></li>
-        <li class="globalHeader__navItem"><a class="globalHeader__navLink" href="#members">MEMBERS</a></li>
-        <li class="globalHeader__navItem"><a class="globalHeader__navLink" href="#goods">GOODS</a></li>
-        <li class="globalHeader__navItem"><a class="globalHeader__navLink" href="#events">EVENTS</a></li>
-        <li class="globalHeader__navItem"><a class="globalHeader__navLink" href="#news">NEWS</a></li>
-        <li class="globalHeader__navItem"><a class="globalHeader__navLink" href="#guide">GUIDE</a></li>
-        <li class="globalHeader__navItem"><a class="globalHeader__navLink" href="#support">SUPPORTER</a></li>
-        <li class="globalHeader__navItem"><a class="globalHeader__navLink" href="#contact">CONTACT</a></li>
+        <li class="globalHeader__navItem">
+          <a class="globalHeader__navLink" href="#about">
+            <p class="globalHeader__navLabelMain">ABOUT</p>
+            <p class="globalHeader__navLabelSub">グループ紹介</p>
+          </a>
+        </li>
+        <li class="globalHeader__navItem">
+          <a class="globalHeader__navLink" href="#members">
+            <p class="globalHeader__navLabelMain">MEMBERS</p>
+            <p class="globalHeader__navLabelSub">メンバー</p>
+          </a>
+        </li>
+        <li class="globalHeader__navItem">
+          <a class="globalHeader__navLink" href="#goods">
+            <p class="globalHeader__navLabelMain">GOODS</p>
+            <p class="globalHeader__navLabelSub">グッズ</p>
+          </a>
+        </li>
+        <li class="globalHeader__navItem">
+          <a class="globalHeader__navLink" href="#events">
+            <p class="globalHeader__navLabelMain">EVENTS</p>
+            <p class="globalHeader__navLabelSub">イベント</p>
+          </a>
+        </li>
+        <li class="globalHeader__navItem">
+          <a class="globalHeader__navLink" href="#news">
+            <p class="globalHeader__navLabelMain">NEWS</p>
+            <p class="globalHeader__navLabelSub">お知らせ</p>
+          </a>
+        </li>
+        <li class="globalHeader__navItem">
+          <a class="globalHeader__navLink" href="#guide">
+            <p class="globalHeader__navLabelMain">GUIDE</p>
+            <p class="globalHeader__navLabelSub">ガイドライン</p>
+          </a>
+        </li>
+        <li class="globalHeader__navItem">
+          <a class="globalHeader__navLink" href="#support">
+            <p class="globalHeader__navLabelMain">SUPPORTER</p>
+            <p class="globalHeader__navLabelSub">サポーター募集</p>
+          </a>
+        </li>
+        <li class="globalHeader__navItem">
+          <a class="globalHeader__navLink" href="#contact">
+            <p class="globalHeader__navLabelMain">CONTACT</p>
+            <p class="globalHeader__navLabelSub">お問い合わせ</p>
+          </a>
+        </li>
       </ul>
     </nav>
-
     <button class="globalHeader__menuButton" type="button" aria-label="メニュー開閉">
       <span class="globalHeader__menuIcon"></span>
     </button>
   </header>
+
+  <section class="hero">
+    <h2>いせえび公式サイトへようこそ！</h2>
+    <p>全員主役。全員自由。だけど、なぜかまとまってる。</p>
+  </section>
 
   <main style="padding-top: 120px;">
     <section id="about" style="padding: 2rem;">
