@@ -1,8 +1,46 @@
+<nav class="mainNav">
+  <ul>
+    <li><a href="#about">ABOUT</a></li>
+    <li><a href="#members">MEMBERS</a></li>
+    <li><a href="#goods">GOODS</a></li>
+    <li><a href="#events">EVENTS</a></li>
+    <li><a href="#news">NEWS</a></li>
+    <li><a href="#support">SUPPORTER</a></li>
+    <li><a href="#contact">CONTACT</a></li>
+  </ul>
+</nav>
+
 <style>
   body {
     background: linear-gradient(180deg, #f0f4f8, #d9e2ec);
     font-family: 'Yu Gothic', '游ゴシック体', 'Meiryo', sans-serif;
     color: #003366;
+  }
+  .mainNav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: #f0f0f0;
+    position: sticky;
+    top: 0;
+    z-index: 998;
+  }
+  .mainNav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+  .mainNav a {
+    text-decoration: none;
+    color: #003366;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  .mainNav a:hover {
+    color: var(--accent-color);
   }
   section {
     max-width: 1000px;
