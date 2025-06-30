@@ -1,31 +1,127 @@
-<main>
-  <section id="about" class="card"><h2>ABOUT</h2><p>いせえびは、全員が主役で自由に活動する配信者グループです。創設者いんくりんくと鶴喰セアンを中心に、多彩なメンバーが集い、各自の個性を活かして活動しています。</p></section>
-  <section id="members" class="card"><h2>MEMBERS</h2><p>現在準備中です。近日中にメンバーのプロフィールを掲載します。</p></section>
-  <section id="goods" class="card"><h2>GOODS</h2><p>公式BOOTHにて、いせえびのオリジナルグッズを販売中です。缶バッジやアクリルスタンドなどのアイテムをご用意しています。</p></section>
-  <section id="events" class="card"><h2>EVENTS</h2><p>次回イベントの詳細は近日発表予定です。</p></section>
-  <section id="news" class="card"><h2>NEWS</h2><p>現在お知らせはありません。</p></section>
-  <section id="support" class="card"><h2>SUPPORTER</h2><p>イラスト・モデリング・映像編集などでサポートしてくださるクリエイター様を募集しています。共にいせえびを盛り上げていきませんか？</p></section>
-  <section id="contact" class="card"><h2>CONTACT</h2><p>お仕事のご依頼・お問い合わせは、X公式DMまたは下記メールアドレスまでお願いします。</p><p>メール：contact@iseebi.example</p></section>
-</main>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>いせえび公式サイト</title>
+  <style>
+    body {
+      background: linear-gradient(180deg, #f0f4f8, #d9e2ec);
+      font-family: 'Yu Gothic', '游ゴシック体', 'Meiryo', sans-serif;
+      color: #003366;
+      margin: 0;
+    }
+    .globalHeader {
+      text-align: center;
+      background: linear-gradient(135deg, #00adc1, #2d7282);
+      padding: 0.5rem 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .globalHeader__logo img {
+      height: 100px;
+      width: auto;
+    }
+    .globalNav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .globalNav a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+    .globalNav a:hover {
+      color: #f1f2f2;
+    }
+    .card {
+      max-width: 1000px;
+      margin: 4rem auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      padding: 2rem;
+    }
+    .card h2 {
+      font-size: 2rem;
+      color: #003366;
+      border-bottom: 3px solid #00adc1;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .card p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
 
-<style>
-  .card {
-    max-width: 1000px;
-    margin: 4rem auto;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    padding: 2rem;
-  }
-  .card h2 {
-    font-size: 2rem;
-    color: #003366;
-    border-bottom: 3px solid #00adc1;
-    padding-bottom: 0.5rem;
-    margin-bottom: 1rem;
-  }
-  .card p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-  }
-</style>
+  <header class="globalHeader">
+    <h1 class="globalHeader__logo">
+      <a href="#">
+        <img src="いセえびロゴ黒.png" alt="いせえび公式ロゴ">
+      </a>
+    </h1>
+    <nav class="globalNav">
+      <ul>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#members">MEMBERS</a></li>
+        <li><a href="#goods">GOODS</a></li>
+        <li><a href="#events">EVENTS</a></li>
+        <li><a href="#news">NEWS</a></li>
+        <li><a href="#support">SUPPORTER</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="about" class="card">
+      <h2>ABOUT</h2>
+      <p>いせえびは、全員が主役で自由に活動する配信者グループです。創設者いんくりんくと鶴喰セアンを中心に、多彩なメンバーが集い、各自の個性を活かして活動しています。</p>
+    </section>
+
+    <section id="members" class="card">
+      <h2>MEMBERS</h2>
+      <p>現在準備中です。近日中にメンバーのプロフィールを掲載します。</p>
+    </section>
+
+    <section id="goods" class="card">
+      <h2>GOODS</h2>
+      <p>公式BOOTHにて、いせえびのオリジナルグッズを販売中です。缶バッジやアクリルスタンドなどのアイテムをご用意しています。</p>
+    </section>
+
+    <section id="events" class="card">
+      <h2>EVENTS</h2>
+      <p>次回イベントの詳細は近日発表予定です。</p>
+    </section>
+
+    <section id="news" class="card">
+      <h2>NEWS</h2>
+      <p>現在お知らせはありません。</p>
+    </section>
+
+    <section id="support" class="card">
+      <h2>SUPPORTER</h2>
+      <p>イラスト・モデリング・映像編集などでサポートしてくださるクリエイター様を募集しています。共にいせえびを盛り上げていきませんか？</p>
+    </section>
+
+    <section id="contact" class="card">
+      <h2>CONTACT</h2>
+      <p>お仕事のご依頼・お問い合わせは、X公式DMまたは下記メールアドレスまでお願いします。</p>
+      <p>メール：contact@iseebi.example</p>
+    </section>
+  </main>
+
+</body>
+</html>
