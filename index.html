@@ -1,141 +1,170 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>いせえび公式サイト</title>
-  <style>
-    html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 150px; /* ナビ＋ロゴ分の高さを考慮して余白を確保 */
-}
-
-body {
-  background: linear-gradient(180deg, #f0f4f8, #d9e2ec);
-  font-family: 'Yu Gothic', '游ゴシック体', 'Meiryo', sans-serif;
-  color: #003366;
-  margin: 0;
-}
-
-.globalHeader {
-  text-align: center;
-  background: linear-gradient(135deg, #00adc1, #2d7282);
-  padding: 0.5rem 1rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.globalHeader__logo img {
-  height: 100px;
-  width: auto;
-}
-
-.globalNav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-}
-
-.globalNav a {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  font-size: 0.9rem;
-  transition: color 0.3s;
-}
-
-.globalNav a:hover {
-  color: #f1f2f2;
-}
-
-.card {
-  max-width: 1000px;
-  margin: 4rem auto;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  padding: 2rem;
-}
-
-.card h2 {
-  font-size: 2rem;
-  color: #003366;
-  border-bottom: 3px solid #00adc1;
-  padding-bottom: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.card p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
-
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>いセえびメンバー紹介</title>
+<style>
+  body {
+    font-family: sans-serif;
+    background: #f1f2f2;
+    color: #333;
+    margin: 0;
+    padding: 1rem;
+  }
+  h1 {
+    text-align: center;
+    color: #2d7282;
+  }
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .member-card {
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+    padding: 1rem;
+    text-align: center;
+  }
+  .member-img {
+    width: 100%;
+    border-radius: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+  .member-name {
+    font-size: 1.25rem;
+    color: #2d7282;
+    margin: 0.5rem 0;
+  }
+  .member-description {
+    font-size: 0.95rem;
+    text-align: left;
+  }
+  .member-link {
+    display: inline-block;
+    margin: 0.3rem;
+    text-decoration: none;
+    color: #00adc1;
+    font-weight: bold;
+  }
+</style>
 </head>
 <body>
 
-  <header class="globalHeader">
-    <h1 class="globalHeader__logo">
-      <a href="#">
-        <img src="いセえびロゴ黒.png" alt="いせえび公式ロゴ">
-      </a>
-    </h1>
-    <nav class="globalNav">
-      <ul>
-        <li><a href="#about">ABOUT</a></li>
-        <li><a href="#members">MEMBERS</a></li>
-        <li><a href="#goods">GOODS</a></li>
-        <li><a href="#events">EVENTS</a></li>
-        <li><a href="#news">NEWS</a></li>
-        <li><a href="#support">SUPPORTER</a></li>
-        <li><a href="#contact">CONTACT</a></li>
-      </ul>
-    </nav>
-  </header>
+<h1>いセえび メンバー紹介</h1>
+<div class="container">
 
-  <main>
-    <section id="about" class="card">
-      <h2>ABOUT</h2>
-      <p>いせえびは、全員が主役で自由に活動する配信者グループです。創設者いんくりんくと鶴喰セアンを中心に、多彩なメンバーが集い、各自の個性を活かして活動しています。</p>
-    </section>
+  <!-- 鶴喰セアン -->
+  <div class="member-card">
+    <img src="1117b74b-fa77-4333-9caf-1df4255ae99f.png" alt="鶴喰セアン" class="member-img">
+    <h3 class="member-name">鶴喰セアン</h3>
+    <p class="member-description">
+      LoLの森に籠ってる男の子🌳✨ 顔良し、声良し、性格良し、ゲームセンス◎<br>
+      他対人ゲームも見てて気持ちがいいプレイが多く、満足感が高いと定評があります😉
+    </p>
+    <a href="https://twitch.tv/silon_owo" target="_blank" class="member-link">Twitch</a>
+    <a href="https://x.com/silon_owo" target="_blank" class="member-link">X</a>
+  </div>
 
-    <section id="members" class="card">
-      <h2>MEMBERS</h2>
-      <p>現在準備中です。近日中にメンバーのプロフィールを掲載します。</p>
-    </section>
+  <!-- 日移廻流 -->
+  <div class="member-card">
+    <img src="58ce0d9d-2507-44b6-a0c7-c03dbb1c327d.png" alt="日移廻流" class="member-img">
+    <h3 class="member-name">日移廻流</h3>
+    <p class="member-description">
+      空の色を映した精霊さん🧚‍♂️ 顔◎声◎性格◎の3点セット✨<br>
+      シュミレーションや対人ゲームなど様々な配信中🖥️
+    </p>
+    <a href="https://twitch.tv/meguru_hiutsuri" target="_blank" class="member-link">Twitch</a>
+    <a href="https://x.com/meguru_hiutsuri" target="_blank" class="member-link">X</a>
+  </div>
 
-    <section id="goods" class="card">
-      <h2>GOODS</h2>
-      <p>公式BOOTHにて、いせえびのオリジナルグッズを販売中です。缶バッジやアクリルスタンドなどのアイテムをご用意しています。</p>
-    </section>
+  <!-- rapdle -->
+  <div class="member-card">
+    <img src="b24c49e2-c33d-427b-8052-0827ed43b05a.png" alt="rapdle" class="member-img">
+    <h3 class="member-name">rapdle</h3>
+    <p class="member-description">
+      FPS等の対人ゲームが得意な男の子💁‍♂️ 喋りも面白い多才な子✨<br>
+      スト6カスタム主催もしているので要チェック✊
+    </p>
+    <a href="https://twitch.tv/rapdle_channel" target="_blank" class="member-link">Twitch</a>
+    <a href="https://x.com/game_rapdle" target="_blank" class="member-link">X</a>
+  </div>
 
-    <section id="events" class="card">
-      <h2>EVENTS</h2>
-      <p>次回イベントの詳細は近日発表予定です。</p>
-    </section>
+  <!-- はぴ -->
+  <div class="member-card">
+    <img src="ba3b98d5-7aaa-45de-936c-8439d686f611.png" alt="はぴ" class="member-img">
+    <h3 class="member-name">はぴ</h3>
+    <p class="member-description">
+      LoLシャコOTPのカワボ(自称)な子✨ 声良し、ゲームセンス◎<br>
+      配信頻度は低めですが、レアな配信に出会えたらラッキー🤩
+    </p>
+    <a href="https://twitch.tv/hapinico" target="_blank" class="member-link">Twitch</a>
+    <a href="https://x.com/hapi_EFT" target="_blank" class="member-link">X</a>
+  </div>
 
-    <section id="news" class="card">
-      <h2>NEWS</h2>
-      <p>現在お知らせはありません。</p>
-    </section>
+  <!-- 矢沢 -->
+  <div class="member-card">
+    <img src="6f05ef2d-cac4-4ea7-b404-143b56aae30a.png" alt="矢沢" class="member-img">
+    <h3 class="member-name">矢沢</h3>
+    <p class="member-description">
+      顔、声、ゲームセンス◎いセえびのアイドル枠！valoをメインに配信中🖥️<br>
+      ちょこっとお口が悪くなる事もあるけど、そんな時にはミルクティをあげましょう🍼
+    </p>
+    <a href="https://twitch.tv/yqzqwq" target="_blank" class="member-link">Twitch</a>
+    <a href="https://x.com/yqzqwq_" target="_blank" class="member-link">X</a>
+  </div>
 
-    <section id="support" class="card">
-      <h2>SUPPORTER</h2>
-      <p>イラスト・モデリング・映像編集などでサポートしてくださるクリエイター様を募集しています。共にいせえびを盛り上げていきませんか？</p>
-    </section>
+  <!-- 如月しの -->
+  <div class="member-card">
+    <img src="6f05ef2d-cac4-4ea7-b404-143b56aae30a.png" alt="如月しの" class="member-img">
+    <h3 class="member-name">如月しの</h3>
+    <p class="member-description">
+      ゲーム大好きな寂しがり狼🐺 社会人ゲーマーで深夜配信多め。<br>
+      最近いセえびに加入したNewメンバー🐾
+    </p>
+    <a href="https://twitch.tv/kisaragi_sino" target="_blank" class="member-link">Twitch</a>
+    <a href="https://x.com/xsxsinoxsx" target="_blank" class="member-link">X</a>
+  </div>
 
-    <section id="contact" class="card">
-      <h2>CONTACT</h2>
-      <p>お仕事のご依頼・お問い合わせは、X公式DMまたは下記メールアドレスまでお願いします。</p>
-      <p>メール：contact@iseebi.example</p>
-    </section>
-  </main>
+  <!-- しろくろ -->
+  <div class="member-card">
+    <img src="ac441eaa-2d7e-4815-91a4-12dceb0a3725.png" alt="しろくろ" class="member-img">
+    <h3 class="member-name">しろくろ</h3>
+    <p class="member-description">
+      valo、APEX、シージなどFPSを中心に配信中✨ 雀魂もたまに配信してる模様！<br>
+      くろちゃんが出てくる事も…！？
+    </p>
+    <a href="https://twitch.tv/shirokurodesu777" target="_blank" class="member-link">Twitch</a>
+    <a href="https://x.com/shirokurobankai" target="_blank" class="member-link">X</a>
+  </div>
 
+  <!-- フリバ -->
+  <div class="member-card">
+    <img src="55e2c232-4718-49f3-bf78-af8bf11d0c86.png" alt="フリバ" class="member-img">
+    <h3 class="member-name">フリバ</h3>
+    <p class="member-description">
+      FPSやモンハン、スト6など様々なゲームができる男の子💁‍♂️<br>
+      見かけた(´・ω・`)に反応するらしいので試してみては？不定期配信で激レアです😋
+    </p>
+    <a href="https://twitch.tv/furiba0730" target="_blank" class="member-link">Twitch</a>
+    <a href="https://x.com/__furiba" target="_blank" class="member-link">X</a>
+  </div>
+
+  <!-- せのせの癒麦酒 -->
+  <div class="member-card">
+    <img src="17721154-2ec6-4743-8858-fb9ec66ce944.png" alt="せのせの癒麦酒" class="member-img">
+    <h3 class="member-name">せのせの癒麦酒</h3>
+    <p class="member-description">
+      PCゲームをたくさん配信している狼の男の子🐺 落ち着いている時の声も、はしゃいでる時の声も良き✨
+    </p>
+    <a href="https://twitch.tv/senosenotwitch" target="_blank" class="member-link">Twitch</a>
+    <a href="https://x.com/senoseno313194" target="_blank" class="member-link">X</a>
+  </div>
+
+</div>
 </body>
 </html>
